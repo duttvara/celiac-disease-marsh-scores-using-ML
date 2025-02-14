@@ -115,7 +115,11 @@ if st.button("Predict"):
     row = marsh_table.iloc[prediction]
     table = pd.DataFrame(row).T.reset_index(drop=True)  # Reset the index
     table.index = ['']
-    st.table(table)
+    styled_table = table.style.set_table_styles([
+    {"selector": "th", "props": [("text-align", "left"), ("width", "200px")]},
+    {"selector": "td", "props": [("text-align", "left"), ("width", "500px")]}
+])
+    st.table(styled_table)
     #row = marsh_table.iloc[prediction]
     #table = pd.DataFrame(row).T  # Create a table
     #st.table(table)
