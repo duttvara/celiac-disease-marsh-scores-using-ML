@@ -1,8 +1,13 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-pip install joblib
-from joblib import load
+import subprocess
+import sys
+try:
+    from joblib import load
+except ModuleNotFoundError:
+    subprocess.run([sys.executable, "-m", "pip", "install", "joblib"])
+    from joblib import load
 import time
 
 # Load trained model
